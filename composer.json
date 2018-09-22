@@ -1,0 +1,44 @@
+{
+    "name": "markocupic/nav-page-container",
+    "description": "Contao plugin, add the 'not-clickable' css class to nav items.",
+    "keywords": [
+        "contao",
+        "nav-page-container",
+        "navigation",
+        "tl_page"
+    ],
+    "type": "contao-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marko Cupic",
+            "email": "m.cupic@gmx.ch",
+            "homepage": "http://4ae-racing-team.ch",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/markocupic/nav-page-container/issues",
+        "source": "https://github.com/markocupic/nav-page-container"
+    },
+    "require": {
+        "contao/core-bundle": ">=4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Markocupic\\NavPageBundle\\": "src/"
+        },
+        "classmap": [
+            "src/Resources/contao"
+        ],
+        "exclude-from-classmap": [
+            "src/Resources/contao/assets",
+            "src/Resources/contao/config",
+            "src/Resources/contao/dca",
+            "src/Resources/contao/languages"
+        ]
+    },
+    "extra": {
+        "contao-manager-plugin": "Markocupic\\NavPageContainerBundle\\ContaoManager\\Plugin"
+    }
+}
