@@ -19,7 +19,7 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create('Markocupic\NavPageContainer\MarkocupicNavPageContainer')
+            BundleConfig::create('Markocupic\NavPageContainerBundle\MarkocupicNavPageContainerBundle')
                 ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle'])
         ];
     }
