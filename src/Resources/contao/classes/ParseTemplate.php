@@ -13,20 +13,25 @@ use Contao\PageModel;
 
 class ParseTemplate
 {
+    /**
+     * Add .not-clickable-page-container to the nav items
+     * @param $objTemplate
+     */
     public function parseTemplateHook($objTemplate)
     {
         // Check if login is allowed, if not replace the default error message
         if (TL_MODE === 'FE')
         {
-            if (strpos($objTemplate->getName(), 'nav_') !== false)
+            if (strpos($objTemplate->getName(), 'nav_') === 0)
             {
-                global $objPage;
-
-                $pageModel = PageModel::findByPk($objPage->id);
-                if ($pageModel !== null)
-                {
-                    die($pageModel->alias);
+                $items =  $objTemplate->items;
+                foreach($items as $k => $v){
+                    if($items[$k]['isPageContainer'])
+                    {
+                        $items[$k]['class'] .= ' not-clickable-page-container';
+                    }
                 }
+                $objTemplate->items = $items;
             }
         }
     }
