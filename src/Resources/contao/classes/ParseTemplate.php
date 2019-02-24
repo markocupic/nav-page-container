@@ -1,4 +1,7 @@
-<?php
+<?php /** @noinspection ALL */
+/** @noinspection ALL */
+/** @noinspection ALL */
+
 /**
  * Created by PhpStorm.
  * User: Marko
@@ -9,15 +12,13 @@
 namespace Markocupic\NavPageContainer\Contao\Classes;
 
 
-use Contao\PageModel;
-
 class ParseTemplate
 {
     /**
      * Add .not-clickable-page-container to the nav items
      * @param $objTemplate
      */
-    public function parseTemplateHook($objTemplate)
+    public function parseTemplateHook(\Contao\Template $objTemplate)
     {
         // Check if login is allowed, if not replace the default error message
         if (TL_MODE === 'FE')
