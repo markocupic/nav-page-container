@@ -1,10 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Marko
- * Date: 22.09.2018
- * Time: 14:01
+
+declare(strict_types=1);
+
+/*
+ * This file is part of Nav Page Container.
+ *
+ * (c) Marko Cupic 2021 <m.cupic@gmx.ch>
+ * @license GPL-3.0-or-later
+ * For the full copyright and license information,
+ * please view the LICENSE file that was distributed with this source code.
+ * @link https://github.com/markocupic/nav-page-container
  */
 
 // Fields
-$GLOBALS['TL_LANG']['tl_page']['isPageContainer'] = array('Megamenu Seiten Container Klasse hinzufügen', 'Dieser Seite in der Navigation die Megamenu Seiten Container Klasse ".not-clickable-page-container" hinzufügen.');
+$GLOBALS['TL_LANG']['tl_page']['isPageContainer'] = ['Megamenu Seiten Container Klasse hinzufügen', 'Dieser Seite in der Navigation die Megamenu Seiten Container Klasse ".not-clickable-page-container" hinzufügen.'];
