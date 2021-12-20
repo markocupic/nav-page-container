@@ -1,6 +1,6 @@
 {
     "name": "markocupic/nav-page-container",
-    "description": "Contao plugin, add the 'not-clickable' css class to nav items.",
+    "description": "Contao plugin, add the 'not-clickable-page-container' css class to nav items.",
     "keywords": [
         "contao",
         "nav-page-container",
@@ -23,6 +23,14 @@
     },
     "require": {
         "contao/core-bundle": ">=4.4"
+    },
+    "require-dev": {
+        "contao/easy-coding-standard": "^4.0",
+        "contao/test-case": "^4.0",
+        "contao/manager-plugin": "^2.3",
+        "phpunit/phpunit": "^8.4",
+        "symfony/http-client": "4.4.*",
+        "symfony/phpunit-bridge": "4.4.*"
     },
     "autoload": {
         "psr-4": {
