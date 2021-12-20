@@ -14,14 +14,12 @@ declare(strict_types=1);
 
 namespace Markocupic\NavPageContainerBundle\ContaoManager;
 
+use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
+use Markocupic\NavPageContainerBundle\MarkocupicNavPageContainerBundle;
 
-/**
- * Class Plugin
- * Plugin for the Contao Manager.
- */
 class Plugin implements BundlePluginInterface
 {
     /**
@@ -30,8 +28,8 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create('Markocupic\NavPageContainerBundle\MarkocupicNavPageContainerBundle')
-                ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle']),
+            BundleConfig::create(MarkocupicNavPageContainerBundle::class)
+                ->setLoadAfter([ContaoCoreBundle::class]),
         ];
     }
 }

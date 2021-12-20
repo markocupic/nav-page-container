@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @link https://github.com/markocupic/nav-page-container
  */
 
-namespace Markocupic\NavPageContainer\DependencyInjection;
+namespace Markocupic\NavPageContainerBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
