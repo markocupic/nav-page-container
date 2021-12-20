@@ -5,6 +5,5 @@ In der Contao Seitenverwaltung kann der Seite das Attribut "Seiten Container" hi
  
  Achtung: Das dafür nötige Javascript und CSS wird nicht geliefert.
 
-
-https://user-images.githubusercontent.com/1525166/146759706-bc618e9d-99ef-452a-85a3-6db7d6dca241.mp4
+https://user-images.githubusercontent.com/1525166/146760006-43c7ba07-a140-4a12-ac37-b6d016702673.mp4
 
