@@ -5,7 +5,7 @@ services:
         bind:
         #$projectDir: '%kernel.project_dir%'
 
-    Markocupic\NavPageContainerBundle\:
+    Markocupic\NavPageContainer\:
         resource: ../../
         exclude: ../../{DependencyInjection,Resources,Model}
 

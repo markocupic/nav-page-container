@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @link https://github.com/markocupic/nav-page-container
  */
 
-namespace Markocupic\NavPageContainerBundle\EventListener\ContaoHook;
+namespace Markocupic\NavPageContainer\EventListener\ContaoHook;
 
 use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\CoreBundle\Routing\ScopeMatcher;

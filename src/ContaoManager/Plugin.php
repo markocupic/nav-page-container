@@ -12,13 +12,13 @@ declare(strict_types=1);
  * @link https://github.com/markocupic/nav-page-container
  */
 
-namespace Markocupic\NavPageContainerBundle\ContaoManager;
+namespace Markocupic\NavPageContainer\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Markocupic\NavPageContainerBundle\MarkocupicNavPageContainer;
+use Markocupic\NavPageContainer\MarkocupicNavPageContainer;
 
 class Plugin implements BundlePluginInterface
 {

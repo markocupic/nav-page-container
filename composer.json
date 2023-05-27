@@ -30,11 +30,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Markocupic\\NavPageContainerBundle\\": "src/"
+            "Markocupic\\NavPageContainer\\": "src/"
         }
     },
     "extra": {
-        "contao-manager-plugin": "Markocupic\\NavPageContainerBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Markocupic\\NavPageContainer\\ContaoManager\\Plugin"
     },
     "config": {
         "allow-plugins": {

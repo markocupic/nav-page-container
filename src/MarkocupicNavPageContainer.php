@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @link https://github.com/markocupic/nav-page-container
  */
 
-namespace Markocupic\NavPageContainerBundle;
+namespace Markocupic\NavPageContainer;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

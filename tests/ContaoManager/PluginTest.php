@@ -18,8 +18,8 @@ use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\DelegatingParser;
 use Contao\TestCase\ContaoTestCase;
-use Markocupic\NavPageContainerBundle\MarkocupicNavPageContainer;
-use Markocupic\SacCabinsBundle\ContaoManager\Plugin;
+use Markocupic\NavPageContainer\ContaoManager\Plugin;
+use Markocupic\NavPageContainer\MarkocupicNavPageContainer;
 
 class PluginTest extends ContaoTestCase
 {
