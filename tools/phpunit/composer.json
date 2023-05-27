@@ -4,5 +4,13 @@
         "contao/manager-plugin": "^2.3.1",
         "phpunit/phpunit": "^9.5",
         "contao/test-case": "^4.0 || ^5.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "contao-components/installer": false,
+            "contao/manager-plugin": false,
+            "contao-community-alliance/composer-plugin": false
+        }
     }
 }
