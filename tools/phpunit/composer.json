@@ -1,6 +1,8 @@
 {
     "require": {
+        "contao/manager-bundle": "^4.13 || ^5.1",
+        "contao/manager-plugin": "^2.3.1",
         "phpunit/phpunit": "^9.5",
-        "contao/test-case": "^4.0"
+        "contao/test-case": "^4.0 || ^5.1"
     }
 }
