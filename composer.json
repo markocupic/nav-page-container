@@ -25,6 +25,10 @@
         "php": "^8.1",
         "contao/core-bundle": "^4.13 || ^5.1"
     },
+    "require-dev": {
+        "contao/manager-bundle": "^4.13 || ^5.1",
+        "contao/manager-plugin": "^2.3.1"
+    },
     "autoload": {
         "psr-4": {
             "Markocupic\\NavPageContainer\\": "src/"
