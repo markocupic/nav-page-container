@@ -6,7 +6,7 @@ services:
         #$projectDir: '%kernel.project_dir%'
 
     Markocupic\NavPageContainer\:
-        resource: ../../
+        resource: ../src/
         exclude: ../../{DependencyInjection,Resources,Model}
 
 
