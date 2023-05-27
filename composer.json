@@ -39,7 +39,8 @@
     },
     "config": {
         "allow-plugins": {
-            "contao/manager-plugin": true
+            "contao/manager-plugin": true,
+            "contao-components/installer": true
         }
     },
     "scripts": {
