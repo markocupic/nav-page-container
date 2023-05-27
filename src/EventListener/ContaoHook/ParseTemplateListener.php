@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of Nav Page Container.
  *
- * (c) Marko Cupic 2021 <m.cupic@gmx.ch>
+ * (c) Marko Cupic 2023 <m.cupic@gmx.ch>
  * @license GPL-3.0-or-later
  * For the full copyright and license information,
  * please view the LICENSE file that was distributed with this source code.
@@ -14,38 +14,22 @@ declare(strict_types=1);
 
 namespace Markocupic\NavPageContainerBundle\EventListener\ContaoHook;
 
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\CoreBundle\Routing\ScopeMatcher;
-use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\Template;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-/**
- * @Hook(ParseTemplateListener::HOOK, priority=ParseTemplateListener::PRIORITY)
- */
+#[AsHook(ParseTemplateListener::HOOK)]
 class ParseTemplateListener
 {
     public const HOOK = 'parseTemplate';
-    public const PRIORITY = 100;
 
-    /**
-     * @var RequestStack
-     */
-    private $requestStack;
+    private static bool $disableHook = false;
 
-    /**
-     * @var ScopeMatcher
-     */
-    private $scopeMatcher;
-
-    /**
-     * @var bool
-     */
-    private static $disableHook = false;
-
-    public function __construct(RequestStack $requestStack, ScopeMatcher $scopeMatcher)
-    {
-        $this->requestStack = $requestStack;
-        $this->scopeMatcher = $scopeMatcher;
+    public function __construct(
+        private readonly RequestStack $requestStack,
+        private readonly ScopeMatcher $scopeMatcher,
+    ) {
     }
 
     /**
@@ -60,7 +44,7 @@ class ParseTemplateListener
         $request = $this->requestStack->getCurrentRequest();
 
         if ($request && $this->scopeMatcher->isFrontendRequest($request)) {
-            if (0 === strpos($objTemplate->getName(), 'nav_')) {
+            if (str_starts_with($objTemplate->getName(), 'nav_')) {
                 $items = $objTemplate->items;
 
                 if (!empty($items) && \is_array($items)) {
