@@ -5,7 +5,8 @@
     },
     "config": {
         "allow-plugins": {
-            "contao-community-alliance/composer-plugin": false
+            "contao-community-alliance/composer-plugin": false,
+            "contao-components/installer": true
         }
     }
 }
