@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of Nav Page Container.
  *
- * (c) Marko Cupic 2023 <m.cupic@gmx.ch>
+ * (c) Marko Cupic <m.cupic@gmx.ch>
  * @license GPL-3.0-or-later
  * For the full copyright and license information,
  * please view the LICENSE file that was distributed with this source code.
@@ -29,5 +29,5 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['isPageContainer'] = [
     'filter'    => true,
     'inputType' => 'checkbox',
     'eval'      => ['mandatory' => false, 'tl_class' => 'clr'],
-    'sql'       => "varchar(1) NOT NULL default ''",
+    'sql'       => ['type' => 'boolean', 'default' => false],
 ];
