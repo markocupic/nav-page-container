@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of Nav Page Container.
  *
- * (c) Marko Cupic 2023 <m.cupic@gmx.ch>
+ * (c) Marko Cupic <m.cupic@gmx.ch>
  * @license GPL-3.0-or-later
  * For the full copyright and license information,
  * please view the LICENSE file that was distributed with this source code.
@@ -24,6 +24,8 @@ class ParseTemplateListener
 {
     public const HOOK = 'parseTemplate';
 
+    private const PAGE_CONTAINER_CSS_CLASS = 'page-container';
+
     private static bool $disableHook = false;
 
     public function __construct(
@@ -33,7 +35,8 @@ class ParseTemplateListener
     }
 
     /**
-     * Add the "not-clickable-page-container" CSS class to all nav items class attribute.
+     * Add the "page-container" CSS class to all nav items class attributes if the
+     * page acts as a page container.
      */
     public function __invoke(Template $objTemplate): void
     {
@@ -43,24 +46,15 @@ class ParseTemplateListener
 
         $request = $this->requestStack->getCurrentRequest();
 
-        if ($request && $this->scopeMatcher->isFrontendRequest($request)) {
-            if (str_starts_with($objTemplate->getName(), 'nav_')) {
-                $items = $objTemplate->items;
-
-                if (!empty($items) && \is_array($items)) {
-                    foreach (array_keys($items) as $k) {
-                        if ($items[$k]['isPageContainer']) {
-                            $class = '' !== $items[$k]['class'] ? $items[$k]['class'] : '';
-                            $arrClass = explode(' ', $class);
-                            $arrClass[] = 'page-container';
-                            $arrClass = array_filter(array_unique($arrClass));
-                            $items[$k]['class'] = implode(' ', $arrClass);
-                        }
-                    }
-                    $objTemplate->items = $items;
-                }
-            }
+        if (!$this->scopeMatcher->isFrontendRequest($request)) {
+            return;
         }
+
+        if (!str_starts_with($objTemplate->getName(), 'nav_')) {
+            return;
+        }
+
+        $this->processNavigationTemplate($objTemplate);
     }
 
     public static function disableHook(): void
@@ -76,5 +70,32 @@ class ParseTemplateListener
     public static function isEnabled(): bool
     {
         return self::$disableHook;
+    }
+
+    private function processNavigationTemplate(Template $objTemplate): void
+    {
+        $items = $objTemplate->items;
+
+        if (empty($items) || !\is_array($items)) {
+            return;
+        }
+
+        foreach (array_keys($items) as $k) {
+            if (!$items[$k]['isPageContainer'] ?? false) {
+                continue;
+            }
+
+            $items[$k]['class'] = $this->addCssClass($items[$k]['class'] ?? '', self::PAGE_CONTAINER_CSS_CLASS);
+        }
+
+        $objTemplate->items = $items;
+    }
+
+    private function addCssClass(string $existingClassList, string $additionalClasses): string
+    {
+        $classes = [...explode(' ', trim($existingClassList)), ...explode(' ', trim($additionalClasses))];
+        $classes = array_values(array_filter(array_unique($classes)));
+
+        return implode(' ', $classes);
     }
 }
