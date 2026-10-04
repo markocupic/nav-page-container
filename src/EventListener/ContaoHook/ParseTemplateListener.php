@@ -46,6 +46,10 @@ class ParseTemplateListener
 
         $request = $this->requestStack->getCurrentRequest();
 
+        if (null === $request) {
+            return;
+        }
+
         if (!$this->scopeMatcher->isFrontendRequest($request)) {
             return;
         }
