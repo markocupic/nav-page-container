@@ -85,7 +85,7 @@ class ParseTemplateListener
         }
 
         foreach (array_keys($items) as $k) {
-            if (!$items[$k]['isPageContainer'] ?? false) {
+            if (empty($items[$k]['isPageContainer'])) {
                 continue;
             }
 

@@ -13,4 +13,4 @@ declare(strict_types=1);
  */
 
 // Fields
-$GLOBALS['TL_LANG']['tl_page']['isPageContainer'] = ['Is page container', 'Use this page as a page container. Page will not be rendered as a span element when using the nav_pagecontainer.html5 template.'];
+$GLOBALS['TL_LANG']['tl_page']['isPageContainer'] = ['Is page container', 'Use this page as a page container. The page will be rendered as a span element instead of a link when using the nav_pagecontainer template.'];

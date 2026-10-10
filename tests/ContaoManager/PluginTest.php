@@ -17,23 +17,15 @@ namespace Markocupic\NavPageContainer\Tests\ContaoManager;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\DelegatingParser;
-use Contao\TestCase\ContaoTestCase;
 use Markocupic\NavPageContainer\ContaoManager\Plugin;
 use Markocupic\NavPageContainer\MarkocupicNavPageContainer;
+use PHPUnit\Framework\TestCase;
 
-class PluginTest extends ContaoTestCase
+class PluginTest extends TestCase
 {
-    public function testInstantiation(): void
+    public function testReturnsTheBundles(): void
     {
-        $this->assertInstanceOf(Plugin::class, new Plugin());
-    }
-
-    public function testGetBundles(): void
-    {
-        $plugin = new Plugin();
-
-        /** @var array $bundles */
-        $bundles = $plugin->getBundles(new DelegatingParser());
+        $bundles = (new Plugin())->getBundles(new DelegatingParser());
 
         $this->assertCount(1, $bundles);
         $this->assertInstanceOf(BundleConfig::class, $bundles[0]);

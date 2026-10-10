@@ -1,0 +1,38 @@
+<ul class="{{ level }}">
+    {% for item in items %}
+        {% if item.isPageContainer|default %}
+            {# Page containers are rendered as span element (no link) #}
+            <li{{ attrs().addClass(item.class) }}><span{{ attrs()
+                    .addClass(item.class)
+                    .set('aria-haspopup', true, item.subitems|default)
+                    .set('itemprop', 'name')
+                }}>{{ item.link }}</span>
+                {{- item.subitems|default|raw -}}
+            </li>
+        {% elseif item.isActive %}
+            <li{{ attrs().addClass(item.class) }}><strong{{ attrs()
+                    .addClass(item.class)
+                    .set('aria-current', 'page')
+                    .set('aria-haspopup', true, item.subitems|default)
+                    .set('itemprop', 'name')
+                }}>{{ item.link }}</strong>
+                {{- item.subitems|default|raw -}}
+            </li>
+        {% else %}
+            <li{{ attrs().addClass(item.class) }}>
+                <a{{ attrs()
+                    .set('href', item.href ?: './')
+                    .set('title', item.pageTitle ?: item.title)
+                    .addClass(item.class)
+                    .setIfExists('accesskey', item.accesskey|default)
+                    .setIfExists('tabindex', item.tabindex|default)
+                    .set('aria-haspopup', true, item.subitems|default)
+                    .set('itemprop', 'url')
+                    .mergeWith(item.target|default)
+                    .mergeWith(item.rel|default)
+                }}><span itemprop="name">{{ item.link }}</span></a>
+                {{- item.subitems|default|raw -}}
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
